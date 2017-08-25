@@ -513,10 +513,12 @@ public class VideoActivity extends FragmentActivity implements VDVideoExtListene
 
 			}
 
-			int currentVideo = 0;
-			currentVideo = (int) mVDVideoView.getListInfo().getCurrInfo().mVideoPosition;
+			//int currentVideo = 0;
+			String ur="";//获取当前视频播放地址
+			ur=  mVDVideoView.getListInfo().getCurrInfo().getVideoId();
+			//currentVideo=0;
 			HttpUtils httpUtils = new HttpUtils();
-			httpUtils.download(videoUrlList[currentVideo], target, true, false,
+			httpUtils.download(ur, target, true, true,
 					new RequestCallBack<File>() {
 						@Override
 						public void onStart() {
